@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>  
+    <head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script></head>
+<body>
+
+    Hello DG3 here <br>
+<form action="welcome.php" method="post">
+Name: <br>
+<input name="nameDatalist" list="nameDatalist" id="nameDatalist">
+<datalist id="names">
+  <option value="Dennis">
+  <option value="Eunsil">
+  <option value="Pastor Kim">
+  <option value="Teacher">
+  <option value="Student">
+</datalist> <br>
+Prayer Request: <br>
+<textarea name="prayer" id="prayer" rows="4" cols="50"></textarea>
+<input type="submit" id="submit-btn">
+</form>
+
+<a href="welcome.php">View Prayer Requests</a>
+
+<script>
+    const form = document.querySelector("form");
+
+    // Prevent form submission on button click
+    document
+        .getElementById("submit-btn")
+        .addEventListener("click", function (event) {
+            var val = $("#nameDatalist").val();
+            var prayerval = $("#prayerid").val();
+        
+            var obj = $("#names").find("option[value=\'" + val + "\']");
+        
+            if(obj != null && obj.length > 0) {
+                alert("validPHP");  // allow form submission
+            }
+            else {
+                alert("invalidPHP");
+                event.preventDefault();
+            }   
+        });
+</script>
+
+<!-- <script>
+    function myFunction() {
+        var val = $("#nameDatalist").val();
+        var prayerval = $("#prayerid").val();
+    
+        var obj = $("#names").find("option[value=\'" + val + "\']");
+    
+        if(obj != null && obj.length > 0) {
+            alert("validPHP");  // allow form submission
+        }
+        else {
+            alert("invalidPHP");
+        }
+    }
+    </script> -->
+
+</body>
+</html>
